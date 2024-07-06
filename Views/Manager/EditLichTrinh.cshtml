@@ -1,0 +1,137 @@
+﻿@model Tuple<LichTrinh,List<TaiXe>>
+@{
+    ViewBag.Title = "EditLichTrinh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header Area -->
+<header class="header">
+    <!-- Header Inner -->
+    <div class="header-inner" style="padding-top: 30px;">
+        <div class="container">
+            <div class="inner">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-12">
+                        <!-- Start Logo -->
+                        <div class="logo">
+                            <a href="index.html"><img src="~/images/logo-benxe.png" alt="#" style="width:133px;height:60px;"></a>
+                        </div>
+                        <!-- End Logo -->
+                        <!-- Mobile Nav -->
+                        <div class="mobile-nav"></div>
+                        <!-- End Mobile Nav -->
+                    </div>
+                    <div class="col-lg-7 col-md-9 col-12">
+                        <!-- Main Menu -->
+                        <div class="main-menu">
+                            <nav class="navigation">
+                                <ul class="nav menu">
+                                    <li><a href="/Home/Index">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu </a></li>
+                                    <li class="active"><a href="/Home/ChuNhaXe">Nhà xe </a></li>
+                                    <li><a href="#">Chuyến xe </a></li>
+                                    <li><a href="#">Tài xế </i></a></li>
+                                    <li><a href="contact.html">Liên hệ</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--/ End Main Menu -->
+                    </div>
+                    <div class="col-lg-2 col-12">
+                        <div class="get-quote">
+                            <a href="/Home/LoginPage" class="btn">Đăng nhập</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Header Inner -->
+</header>
+<!-- End Header Area -->
+<section class="contact-us section">
+    <div class="container">
+        <div class="inner">
+            <div class="row" style="justify-content: center;">
+                <div class="col-lg-8">
+                    <div class="contact-us-form">
+                        <h2>Chỉnh sửa lịch trình</h2>
+                        <!-- Form -->
+                        <form class="form" method="post" action="/Manager/EditLichTrinhHandler">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="id">ID lịch trình</label>
+                                        <input type="number" name="idlichtrinh" value="@Model.Item1.idLichTrinh" required="" id="id">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Giờ xuất phát</label>
+                                        <input type="text" name="gioxuatphat" value="@Model.Item1.gioXuatPhat" required="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Điểm đến</label>
+                                        <input type="text" name="diemden" value="@Model.Item1.diemDen" required="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Giá vé</label>
+                                        <input type="number" name="giave" value="@Model.Item1.giaVe" required="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Số lượng còn lại</label>
+                                        <input type="number" name="soluongconlai" value="@Model.Item1.soLuongConLai" required=""></input>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <style>
+                                            .nice-select {
+                                                width: 310px;
+                                                height: 50px;
+                                            }
+
+                                            .current {
+                                                display: block;
+                                                padding: 10px;
+                                            }
+                                        </style>
+                                        <label>Tài xế</label>
+                                        <select name="taixe">
+                                            @foreach (var item in Model.Item2)
+                                            {
+                                                if (item.idTaiXe == Model.Item1.idTaiXe)
+                                                {
+                                                    <option value="@item.idTaiXe" selected="selected">@item.hoTen</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@item.idTaiXe">@item.hoTen</option>
+
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group login-btn">
+                                        <button class="btn" type="submit">Chỉnh sửa</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                        <!--/ End Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

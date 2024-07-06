@@ -1,0 +1,99 @@
+﻿@model  List<ChuNhaXe>
+@{
+    ViewBag.Title = "ChuNhaXe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header Area -->
+<header class="header">
+    <!-- Header Inner -->
+    <div class="header-inner" style="padding-top: 30px;">
+        <div class="container">
+            <div class="inner">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-12">
+                        <!-- Start Logo -->
+                        <div class="logo">
+                            <a href="index.html"><img src="~/images/logo-benxe.png" alt="#" style="width:133px;height:60px;"></a>
+                        </div>
+                        <!-- End Logo -->
+                        <!-- Mobile Nav -->
+                        <div class="mobile-nav"></div>
+                        <!-- End Mobile Nav -->
+                    </div>
+                    <div class="col-lg-7 col-md-9 col-12">
+                        <!-- Main Menu -->
+                        <div class="main-menu">
+                            <nav class="navigation">
+                                <ul class="nav menu">
+                                    <li ><a href="/Home/Index">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu </a></li>
+                                    <li class="active"><a href="/Home/ChuNhaXe">Nhà xe </a></li>
+                                    <li><a href="#">Chuyến xe </a></li>
+                                    <li><a href="#">Tài xế </i></a></li>
+                                    <li><a href="contact.html">Liên hệ</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--/ End Main Menu -->
+                    </div>
+                    <div class="col-lg-2 col-12">
+                        <div class="get-quote">
+                            <a href="/Home/LoginPage" class="btn">Đăng nhập</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Header Inner -->
+</header>
+<!-- End Header Area -->
+<section class="Feautes section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title" style="margin-top:50px">
+                    <h2>Tất cả các nhà xe đăng ký với bến</h2>
+                    <img src="~/images/section-img.png" alt="#">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="justify-content: end;">
+            <div style="margin-right: 15px;">
+                <form action="/Home/ChuNhaXeSearch">
+                    <input name="s" type="text" placeholder="Tìm kiếm nhà xe" style="padding: 10px; width: 400px;">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="schedule" style="margin-top: 200px;">
+    <div class="container">
+        <div class="schedule-inner">
+            <div class="row" style="margin-top: 20px;">
+                @foreach (var i in Model)
+                {
+                    <div class="col-lg-6 col-md-6 col-12 ">
+                        <!-- single-schedule -->
+                        <div class="single-schedule first" style="margin-bottom: 20px">
+                            <div class="inner">
+                                <div class="icon">
+                                    <i class="fa fa-map"></i>
+                                </div>
+                                <div class="single-content">
+                                    <span>Nhà xe</span>
+                                    <h4>@i.tenNhaXe</h4>
+                                    <p>Mo ta</p>
+                                    <p>Số lượng đầu xe: @i.soLuongXe</p>
+                                    <a href="/Home/ChuNhaXeDetail?id=@i.idChuNhaXe">XEM THÊM<i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+

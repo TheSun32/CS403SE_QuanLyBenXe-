@@ -1,0 +1,129 @@
+﻿@model TaiKhoan
+@{
+    ViewBag.Title = "QLNhanVien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header Area -->
+<header class="header">
+    <!-- Header Inner -->
+    <div class="header-inner" style="padding-top: 30px;">
+        <div class="container">
+            <div class="inner">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-12">
+                        <!-- Start Logo -->
+                        <div class="logo">
+                            <a href="index.html"><img src="~/images/logo-benxe.png" alt="#" style="width:133px;height:60px;"></a>
+                        </div>
+                        <!-- End Logo -->
+                        <!-- Mobile Nav -->
+                        <div class="mobile-nav"></div>
+                        <!-- End Mobile Nav -->
+                    </div>
+                    <div class="col-lg-7 col-md-9 col-12">
+                        <!-- Main Menu -->
+                        <div class="main-menu">
+                            <nav class="navigation">
+                                <ul class="nav menu">
+                                    <li><a href="/Home/Index">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu </a></li>
+                                    <li class="active"><a href="/Home/ChuNhaXe">Nhà xe </a></li>
+                                    <li><a href="#">Chuyến xe </a></li>
+                                    <li><a href="#">Tài xế </i></a></li>
+                                    <li><a href="contact.html">Liên hệ</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--/ End Main Menu -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Header Inner -->
+</header>
+<!-- End Header Area -->
+<div class="breadcrumbs overlay">
+    <div class="container">
+        <div class="bread-inner">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Xin chào nhân viên @ViewBag.name</h2>
+                    <ul class="bread-list">
+                        <li><a href="/Home/Index">Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Single News -->
+<section class="news-single section">
+    <div class="container" style="max-width: 2000px;">
+        <div class="row">
+            <div class="col-lg-2 col-12">
+                <div class="main-sidebar">
+                    <div class="single-widget category">
+                        <h3 class="title">Quản lý</h3>
+                        <ul class="categor-list">
+                            <li><a href="/Manager/InforChuNhaXe">Thông tin nhân viên</a></li>
+                            <li><a href="/Manager/QLChuNhaXe">Thống kê doanh thu</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-12">
+                <div class="contact-us-form">
+                    <h2>Chỉnh sửa thông tin</h2>
+                    <!-- Form -->
+                    <form class="form" method="post" action="/Manager/EditInforNhanVien">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Họ và tên</label>
+                                    <input type="text" name="hoten" value="@Model.hoTen" required="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" name="email" value="@Model.email" required="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Số CCCD</label>
+                                    <input type="text" name="socccd" value="@Model.soCCCD" required="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Ngày sinh</label>
+                                    <input type="text" name="ngaysinh" value="@Model.ngaySinh" required=""></input>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Số điện thoại</label>
+                                    <input type="text" name="sodt" value="@Model.soDT" required=""></input>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group login-btn">
+                                    <button class="btn" type="submit">Chỉnh sửa</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                    <!--/ End Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
